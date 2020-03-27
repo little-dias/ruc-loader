@@ -1,7 +1,7 @@
 from pydub import AudioSegment
 
 def check_extension(file_path, extension = ".mp3"):
-        """(bool)Checks if file is of a certain extension | string file_path, extensiom"""
+        """(bool)Checks if file is of a certain extension | string file_path, extension"""
         isExtension = (file_path.lower()).endswith(extension.lower())
         return isExtension
 
@@ -18,7 +18,8 @@ def check_peaking(audio_segment,slice_interval = 10000, max_peaks = 10):
                 count += (i.max_dBFS == 0)
         isPeaking = count > max_peaks
         return  isPeaking
-def check_normalization(audio_segment, normalize_threshold = -1):
+
+def check_normalize(audio_segment, normalize_threshold = -1):
         """(bool)Checks if audio is normalize above a certain threshold | AudioSegment audio_segment; int normalize_threshold"""
         isNormalized = (audio_segment.max_dBFS >= normalize_threshold)
         return isNormalized
